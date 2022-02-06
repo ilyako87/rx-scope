@@ -1,0 +1,26 @@
+version: '3'
+services:
+  rx-client:
+    container_name: rx-client
+    build: ./rx-client
+#    image: rx-client:latest
+    ports:
+      - "18082:8082"
+    environment:
+      - RX_SERVER_HOST=rx-server
+      - RX_SERVER_PORT=8081
+    networks:
+      - spring-cloud-network
+
+  rx-server:
+    container_name: rx-server
+    build: ./rx-server
+#    image: rx-server:latest
+    ports:
+      - "18081:8081"
+    networks:
+      - spring-cloud-network
+
+networks:
+  spring-cloud-network:
+    driver: bridge
