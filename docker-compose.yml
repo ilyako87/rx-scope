@@ -3,7 +3,7 @@ services:
   rx-client:
     container_name: rx-client
     build: ./rx-client
-#    image: rx-client:latest
+    image: rx-client:latest
     ports:
       - "18082:8082"
     environment:
@@ -15,7 +15,7 @@ services:
   rx-server:
     container_name: rx-server
     build: ./rx-server
-#    image: rx-server:latest
+    image: rx-server:latest
     ports:
       - "18081:8081"
     networks:
